@@ -80,7 +80,7 @@ export const getMetricTooltip = params => {
 };
 
 /**
- * Logic for hide the text when is out of bar sizes and rotate the text to v ertical and horizontal position
+ * Logic for hide the text when is out of bar sizes and rotate the text to vertical and horizontal position
  * @param {object} display Rectangle object that represent a bar in the char
  * @param {number} textHeight 
  * @param {number} textWidth 
