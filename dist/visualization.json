@@ -1,0 +1,72 @@
+{
+  "name": "Bars: Multiple Metrics Update",
+  "enabled": true,
+  "controls": [
+    "UberStyle",
+    "DirtyDataIndicator",
+    "Color",
+    "FiltersIndicator",
+    "Undo",
+    "Info",
+    "TimePlayer",
+    "Rulers",
+    "Filters",
+    "Defaults",
+    "Bookmark",
+    "Sort",
+    "Zoom",
+    "NoDataIndicator",
+    "TimeTable",
+    "Share",
+    "Download"
+  ],
+  "objectFieldTypes": [
+    "TIME",
+    "NUMBER",
+    "MONEY",
+    "ATTRIBUTE",
+    "INTEGER"
+  ],
+  "variables": [
+    {
+      "name": "Group By",
+      "type": "group",
+      "descr": "",
+      "attributeType": [
+        "ATTRIBUTE",
+        "TIME"
+      ],
+      "defaultValue": {
+        "limit": 20
+      },
+      "colorMetric": false,
+      "colorNumb": 0,
+      "groupType": "attribute",
+      "required": true
+    },
+    {
+      "name": "Metric",
+      "type": "multi-metric",
+      "attributeType": [
+        "MONEY",
+        "INTEGER",
+        "NUMBER"
+      ],
+      "defaultValue": [
+        {
+          "name": "count",
+          "colorConfig": {
+            "autoShowColorLegend": true
+          }
+        }
+      ],
+      "colorMetric": false,
+      "colorNumb": 2,
+      "metricType": "color",
+      "legendType": "palette",
+      "colorSet": "ZoomPalette",
+      "required": false
+    }
+  ],
+  "templateType": "BLANK"
+}
