@@ -9,13 +9,17 @@ const metricAccesor = controller.dataAccessors[metricAccesorName];
 
 const getTableRow = (label, value, color='') => `<div class="zd_tooltip_info_table_row"><div class="zd_tooltip_info_table_row_label">${label}</div><div class="zd_tooltip_info_table_row_value">${color} ${value}</div></div>`;
 
-
 const getLuminosity = color => {
     const rgb = echarts.color.parse(color);
     const luminosity = 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2];
     return luminosity >= 165 ? '#000' : '#FFF';
-}
+};
 
+/**
+ * Return a function to take the first animator value, get the _tracks key, on _tracks get width if exists,
+ * after that get the last with track and after that get the value.
+ * This value represent the end value of width when animation is finished.
+ */
 const getFinalWidth = _.flow(_.first, _.partialRight(_.get, '_tracks'), 
                              _.partialRight(_.get, 'width'), _.last, 
                              _.partialRight(_.get, 'value'));
@@ -30,7 +34,7 @@ export const SIFormat = (number, digits=0) => {
     const [exponentialNumber, exponential] = number.toExponential(digits).split('e');
     const index = Math.floor(_.parseInt(exponential) / 3);
     return exponentialNumber * Math.pow(10, _.parseInt(exponential) - index * 3) + codeTable[index + 4];
-}
+};
 
 export const getFont = () => ({
     fontFamily: 'Source Pro, source-sans-pro, Helvetica, Arial, sans-serif',
@@ -97,5 +101,5 @@ export const setTextAndRotationLabel = (display, textHeight, textWidth) => {
             textAlign: 'center', 
             textDistance: 2 * display.style.textDistance, 
         });
-    }
-}
+    } 
+};
